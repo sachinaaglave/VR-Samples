@@ -6,11 +6,12 @@
     <title>Hello, World! • A-Frame</title>
     <meta name="description" content="Hello, World! • A-Frame">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 
-<body>
-    <a-scene>
-<!--         <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+<body ng-app="myApp">
+    <a-scene ng-controller="myCtrl">
+        <!--         <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
         <a-box position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-box>
         <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
         <a-plane rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
@@ -18,29 +19,44 @@
         <a-entity position="0 0 3.8">
             <a-camera></a-camera>
         </a-entity> -->
-        <a-image src="newscene.jpg" position="0 0 -10" height="9" width="16" scale="0.5 0.5 0.5"></a-image>
+        <a-image src="newscene.jpg" position="0 2 -10" height="9" width="16" scale="0.5 0.5 0.5"></a-image>
 
-        <a-entity id="camera" camera look-controls mouse-cursor universal-controls="movementControls: hmd">
+        <a-entity camera look-controls wasd-controls >
             <a-entity geometry="primitive: circle; radius: 0.1;" material="side: double; color: white;" position="0 1 -3" scale="0.2 0.2 0.2">
             </a-entity>
 
+            <!-- <a-entity geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.3; thetaStart: 90; thetaLength: 0;" material="side: double; color: white;" position="0 1 -3" scale="0.1 0.1 0.1">
+                <a-animation attribute="geometry.thetaLength" delay="800" dur="1000" fill="backwards" from="0" to="-360"></a-animation>
+                <a-animation attribute="geometry.radiusOuter" delay="800" dur="1000" fill="forwards" from="0.5 0.5 0.5" to="2.1 2.1 2.1"></a-animation> -->
+                <!-- <a-animation attribute="geometry.thetaLength" delay="1800" dur="200" fill="forwards" from="-360" to="0"></a-animation>
+                <a-animation attribute="geometry.radiusOuter" delay="1800" dur="200" fill="forwards" from="1 1 1" to="0.1 .1 .1"></a-animation> -->
+                <!-- <a-animation attribute="material.color" delay="1000" dur="1500" fill="backwards" from="white" to="black"></a-animation> -->
+                <!-- <a-animation attribute="material.opacity" delay="800" duration="300" from="0" to=".6"></a-animation> -->
+                <!-- <a-animation attribute="material.opacity" delay="1100" duration="500" from=".6" to="0.3"></a-animation> -->
+                <!-- <a-animation begin="click" attribute="material.opacity" duration="500" to="0"></a-animation> -->
+            <!-- </a-entity> -->
+
+            <a-entity geometry="primitive: circle; radius: 0.15; thetaStart: 90;" material="side: double; color: #7fae41;" position="0 1 -3" scale="0.2 0.2 0.2">
+                <a-animation attribute="scale" delay="500" duration="1000" fill="forwards" from="0.2 0.2 0.2" to="0.7 0.7 0.7"></a-animation>
+                <a-animation attribute="scale" delay="1300" duration="400" fill="forwards" from="0.7 0.7 0.7" to="0.2 0.2 0.2"></a-animation>
+                <a-animation attribute="geometry.thetaLength" delay="500" duration="800" fill="forwards" from="0" to="-360"></a-animation>
+                <a-animation attribute="geometry.thetaLength" delay="1300" duration="400" fill="forwards" from="420" to="0"></a-animation>
+            </a-entity>
             <a-entity geometry="primitive: circle; radius: 0.1;" material="side: double; color: white;" position="0 1 -3" scale="0.2 0.2 0.2">
-                  <a-animation attribute="scale" delay="500" duration="1000" from="0.2 0.2 0.2" to="1 1 1"></a-animation>
-                  <a-animation attribute="material.color" delay="700" dur="700" fill="forwards" from="white" to="black"></a-animation>
-                  <a-animation attribute="material.opacity" delay="500" duration="1000" from="1" to="0"></a-animation>
+                <a-animation attribute="scale" delay="500" duration="1000" fill="forwards" from="0.2 0.2 0.2" to="0.7 0.7 0.7"></a-animation>
+                <a-animation attribute="scale" delay="1300" duration="400" fill="forwards" from="0.7 0.7 0.7" to="0.2 0.2 0.2"></a-animation>
             </a-entity>
 
-            <a-entity geometry="primitive: ring; radiusInner: 0.9; radiusOuter: 1.2; thetaStart: 90; thetaLength: 0;" material="side: double; color: white;" position="0 1 -3" scale="0.1 0.1 0.1">
-                  <a-animation attribute="geometry.thetaLength" delay="800" dur="1000" fill="forwards" from="0" to="-360"></a-animation>
-                  <a-animation attribute="material.color" delay="1000" dur="1500" fill="forwards" from="white" to="black"></a-animation>
-                   <a-animation attribute="material.opacity" delay="800" duration="300" from="0" to=".6"></a-animation>
-                  <a-animation attribute="material.opacity" delay="1100" duration="500" from=".6" to="0.3"></a-animation>
-                  <a-animation begin="click" attribute="material.opacity" duration="500" to="0"></a-animation>
-            </a-entity>
         </a-entity>
 
-        <a-sky color="orange"/>
+        <a-sky color="orange" />
     </a-scene>
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.e_d_img = true;
+    });
+    </script>
 </body>
 
 </html>
