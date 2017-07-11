@@ -1,0 +1,139 @@
+<html>
+
+<head>
+  <title>img951272</title>
+  <!-- <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> -->
+  <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
+  <!-- <script src="https://rawgit.com/bryik/aframe-cubemap-component/master/dist/aframe-cubemap-component.min.js"></script> -->
+  <script src="./aframe-cubemap-build.js"></script>
+  <script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <button onclick="loadAll()" style="position: fixed; top: 0px; left: 0px; width: 100px; height: 50px; z-index: 9999"> Button</button>
+  <a-scene>
+    <!-- <a-entity id="cubemap" cubemap="urls: righturl, lefturl, topurl, bottomurl, fronturl, backurl;"></a-entity> -->
+    <a-entity id="cubemap"
+      ></a-entity>
+  </a-scene>
+  <script type="text/javascript" id="editable">
+    var map = {};
+    var preload;
+    var loader;
+    var manifest;
+    var w = 226; // Item width
+    var h = 170; // Item height
+    var index = 0;
+    var urls = {};
+
+    // Reset everything
+    function reload() {
+      // If there is an open preload queue, close it.
+      if (preload != null) {
+        preload.close();
+      }
+
+      // Push each item into our manifest
+      manifest = [
+        {
+          id: "right",
+          src : "https://res.cloudinary.com/smis/image/upload/pptvr-assets/private/dI46u0z9EygJF2lNlSOYzEEQuus2/58b1bf3c673f18000f087ef3/image2d/right.jpg",
+        },
+        {
+          id: "left",
+          src : "https://res.cloudinary.com/smis/image/upload/pptvr-assets/private/dI46u0z9EygJF2lNlSOYzEEQuus2/58b1bf3c673f18000f087ef3/image2d/left.jpg",
+        },
+        {
+          id: "top",
+          src : "https://res.cloudinary.com/smis/image/upload/pptvr-assets/private/dI46u0z9EygJF2lNlSOYzEEQuus2/58b1bf3c673f18000f087ef3/image2d/top.jpg",
+        },
+        {
+          id: "bottom",
+          src : "https://res.cloudinary.com/smis/image/upload/pptvr-assets/private/dI46u0z9EygJF2lNlSOYzEEQuus2/58b1bf3c673f18000f087ef3/image2d/bottom.jpg",
+        },
+        {
+          id: "front",
+          src : "https://res.cloudinary.com/smis/image/upload/pptvr-assets/private/dI46u0z9EygJF2lNlSOYzEEQuus2/58b1bf3c673f18000f087ef3/image2d/front.jpg",
+        },
+        {
+          id: "back",
+          src : "https://res.cloudinary.com/smis/image/upload/pptvr-assets/private/dI46u0z9EygJF2lNlSOYzEEQuus2/58b1bf3c673f18000f087ef3/image2d/back.jpg",
+        }
+      ];
+
+      // Create a preloader. There is no manifest added to it up-front, we will add items on-demand.
+      preload = new createjs.LoadQueue(true);
+
+      // Use this instead to use tag loading
+      //preload = new createjs.LoadQueue(false);
+
+      preload.on("fileload", handleFileLoad);
+      preload.on("progress", handleOverallProgress);
+      preload.on("fileprogress", handleFileProgress);
+      preload.on("error", handleFileError);
+      preload.setMaxConnections(5);
+    }
+
+    function loadAll() {
+      reload();
+      while (manifest.length > 0) {
+        loadAnother();
+      }
+    }
+
+    function loadAnother() {
+      // Get the next manifest item, and load it
+      var item = manifest.shift();
+      preload.loadFile(item);
+    }
+
+    // File complete handler
+    function handleFileLoad(event) {
+      // Get a reference to the loaded image (<img/>)
+      var img = event.result;
+      var canvas = document.createElement("canvas");
+      var ctx = canvas.getContext("2d");
+
+      canvas.width = img.naturalWidth; // update canvas size to match image
+      canvas.height = img.naturalHeight;
+
+      ctx.drawImage(img, 0, 0);
+
+
+      canvas.toBlob(function(blob) { // get content as JPEG blob
+        var reader = new window.FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = function() {
+          // resolve(reader.result); //data url
+          urls[event.item.id] = reader.result;
+          index++;
+          if(index == 6){
+            var test = urls['right'].replace('data:image/jpeg;base64,','') + ' ' + urls['left'].replace('data:image/jpeg;base64,','') + ' ' + urls['top'].replace('data:image/jpeg;base64,','') + ' ' + urls['bottom'].replace('data:image/jpeg;base64,','') + ' ' + urls['front'].replace('data:image/jpeg;base64,','') + ' ' + urls['back'].replace('data:image/jpeg;base64,','');
+            // console.log("test : ", test);
+            document.querySelector("#cubemap").setAttribute("cubemap", "urls: " + test + ";");
+          }
+        }
+      }, "image/jpeg", 0.75);
+    }
+
+    // File progress handler
+    function handleFileProgress(event) {
+      // var div = map[event.item.id]; // Lookup the related item
+    }
+
+    // Overall progress handler
+    function handleOverallProgress(event) {
+      // $("#mainProgress > .progress").width(preload.progress * $("#mainProgress").width());
+    }
+
+    // An error happened on a file
+    function handleFileError(event) {
+      // var div = map[event.item.id];
+      // div.addClass("error");
+      console.log("erorr : ", event.item.id);
+    }
+  </script>
+</body>
+
+</html>
