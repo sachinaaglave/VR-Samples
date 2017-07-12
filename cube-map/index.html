@@ -11,11 +11,16 @@
 </head>
 
 <body>
-  <button onclick="loadAll()" style="position: fixed; top: 0px; left: 0px; width: 100px; height: 50px; z-index: 9999"> Button</button>
+  <!-- <button onclick="loadAll()" style="position: fixed; top: 0px; left: 0px; width: 100px; height: 50px; z-index: 9999"> Button</button> -->
   <a-scene>
-    <!-- <a-entity id="cubemap" cubemap="urls: righturl, lefturl, topurl, bottomurl, fronturl, backurl;"></a-entity> -->
-    <a-entity id="cubemap"
-      ></a-entity>
+    <!-- <a-entity cubemap="urls: righturl, lefturl, topurl, bottomurl, fronturl, backurl;"></a-entity> -->
+
+    <a-entity position="0 0 0" rotation="180 0 180" cubemap="urls: ./envMap/face-r.jpg ./envMap/face-l.jpg ./envMap/face-t.jpg ./envMap/face-d.jpg ./envMap/face-f.jpg ./envMap/face-b.jpg; isDataUrl: false; opacity: 1; edgeLength: 3000"></a-entity>
+
+    <a-entity position="0 0 0" id="cubemap"></a-entity>
+
+    <!-- <a-sky src="./360.jpg"> -->
+
   </a-scene>
   <script type="text/javascript" id="editable">
     var map = {};
@@ -111,7 +116,11 @@
           if(index == 6){
             var test = urls['right'].replace('data:image/jpeg;base64,','') + ' ' + urls['left'].replace('data:image/jpeg;base64,','') + ' ' + urls['top'].replace('data:image/jpeg;base64,','') + ' ' + urls['bottom'].replace('data:image/jpeg;base64,','') + ' ' + urls['front'].replace('data:image/jpeg;base64,','') + ' ' + urls['back'].replace('data:image/jpeg;base64,','');
             // console.log("test : ", test);
-            document.querySelector("#cubemap").setAttribute("cubemap", "urls: " + test + ";");
+            document.querySelector("#cubemap").setAttribute("cubemap", "urls: " + test + "; opacity: 0.2; isDataUrl: true; edgeLength: 20;");
+            document.querySelector("#cubemap").addEventListener('materialtextureloaded', function(){
+              console.log("cubemap texture loaded.");
+            });
+
           }
         }
       }, "image/jpeg", 0.75);
@@ -133,6 +142,8 @@
       // div.addClass("error");
       console.log("erorr : ", event.item.id);
     }
+
+    loadAll();
   </script>
 </body>
 

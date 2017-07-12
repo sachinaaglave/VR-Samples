@@ -1,140 +1,209 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+/******/
+(function(modules) { // webpackBootstrap
+    /******/ // The module cache
+    /******/
+    var installedModules = {};
 
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+    /******/ // The require function
+    /******/
+    function __webpack_require__(moduleId) {
 
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
+        /******/ // Check if module is in cache
+        /******/
+        if (installedModules[moduleId])
+        /******/
+            return installedModules[moduleId].exports;
 
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+        /******/ // Create a new module (and put it into the cache)
+        /******/
+        var module = installedModules[moduleId] = {
+            /******/
+            exports: {},
+            /******/
+            id: moduleId,
+            /******/
+            loaded: false
+                /******/
+        };
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+        /******/ // Execute the module function
+        /******/
+        modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+        /******/ // Flag the module as loaded
+        /******/
+        module.loaded = true;
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+        /******/ // Return the exports of the module
+        /******/
+        return module.exports;
+        /******/
+    }
 
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+    /******/ // expose the modules object (__webpack_modules__)
+    /******/
+    __webpack_require__.m = modules;
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+    /******/ // expose the module cache
+    /******/
+    __webpack_require__.c = installedModules;
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+    /******/ // __webpack_public_path__
+    /******/
+    __webpack_require__.p = "";
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
+    /******/ // Load entry module and return exports
+    /******/
+    return __webpack_require__(0);
+    /******/
+})
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ function(module, exports) {
+/******/
+([
+    /* 0 */
+    /***/
+    function(module, exports) {
 
-	/* global AFRAME, THREE */
-	if (typeof AFRAME === 'undefined') {
-	  throw new Error('Component attempted to register before AFRAME was available.');
-	}
+        /* global AFRAME, THREE */
+        if (typeof AFRAME === 'undefined') {
+            throw new Error('Component attempted to register before AFRAME was available.');
+        }
 
-	/**
-	 * Cubemap component for A-Frame.
-	 */
-	AFRAME.registerComponent('cubemap', {
-	  schema: {
-	    folder: {
-	      type: 'string'
-	    },
-	    urls: {
-	    	type : 'string'
+        /**
+         * Cubemap component for A-Frame.
+         */
+        AFRAME.registerComponent('cubemap', {
+            schema: {
+                isDataUrl: {type: 'boolean', default: false},
+                folder: {type: 'string'},
+                urls: {type: 'string'},
+                edgeLength: {type: 'int', default: 5000},
+                opacity: {type: 'number', default: 1},
+            },
 
-	    },
-	    edgeLength: {
-	      type: 'int',
-	      default: 5000
-	    }
-	  },
+            update: function(oldData) {
+                
+                /**
+                 * Cubemap image files must follow this naming scheme sequence
+                 * from: http://threejs.org/docs/index.html#Reference/Textures/CubeTexture
+                 * var urls = [
+                 *   'right.jpg', 'left.jpg',
+                 *   'top.jpg', 'bottom.jpg',
+                 *   'front.jpg', 'back.jpg'
+                 * ];
+                */
+                var self = this;
 
-	  /**
-	   * Called when component is attached and when component data changes.
-	   * Generally modifies the entity based on the data.
-	   */
-	  update: function (oldData) {
-	    // entity data
-	    var el = this.el;
-	    var data = this.data;
+                this.urls = this.data.urls.split(" ").map(function(url) {
+                    if(self.data.isDataUrl)
+                        return 'data:image/jpeg;base64,' + url;
+                    else
+                        return url;
+                });
+                
+                this.loadCubemapUsingMeshBasicMaterial();
+               
+            },
 
-	    // Path to the folder containing the 6 cubemap images
-	    // var srcPath = data.folder;
+            remove: function() {
+                this.el.removeObject3D('cubemap');
+            },
 
-	    // // Cubemap image files must follow this naming scheme
-	    // // from: http://threejs.org/docs/index.html#Reference/Textures/CubeTexture
-	    // var urls = [
-	    //   'right.jpg', 'left.jpg',
-	    //   'top.jpg', 'bottom.jpg',
-	    //   'front.jpg', 'back.jpg'
-	    // ];
+            /**
+             *  The cube map is loaded as a single texture that
+             *  is applied to the cube as a whole.  This requires that the texture be used
+             *  as an OpenGL cubemap texture, and for that a new kind of material is used.
+             *  I did't find way to update opacity of the texture
+             **/
+            loadCubemapUsingShaderMaterial: function() {
+                var cubeMesh;
 
-	    var urls = this.data.urls.split(" ").map(function(e) { 
-				e = 'data:image/jpeg;base64,' + e; 
-				return e;
-			});
-	    // console.log("urls : ", urls);
-	    // return;
-	    // Code that follows is adapted from "Skybox and environment map in Three.js" by Roman Liutikov
-	    // http://blog.romanliutikov.com/post/58705840698/skybox-and-environment-map-in-threejs
+                // Create loader, load cubemap textures
+                var cubemapTextureloader = new THREE.CubeTextureLoader();
+                cubemapTextureloader.setCrossOrigin("anonymous");
 
-	    // Create loader, set folder path, and load cubemap textures
-	    var loader = new THREE.CubeTextureLoader();
-	    loader.setCrossOrigin("anonymous");
+                var cubemapTexture = cubemapTextureloader.load(this.urls);
 
-	    var cubemap = loader.load(urls);
-	    cubemap.format = THREE.RGBFormat;
+                cubemapTexture.format = THREE.RGBFormat;
 
-	    var shader = THREE.ShaderLib['cube']; // init cube shader from built-in lib
+                var shader = THREE.ShaderLib['cube']; // init cube shader from built-in lib
 
-	    // Create shader material
-	    var skyBoxShader = new THREE.ShaderMaterial({
-	      fragmentShader: shader.fragmentShader,
-	      vertexShader: shader.vertexShader,
-	      uniforms: shader.uniforms,
-	      depthWrite: false,
-	      side: THREE.BackSide
-	    });
+                // Create shader material
+                var skyBoxShader = new THREE.ShaderMaterial({
+                    fragmentShader: shader.fragmentShader,
+                    vertexShader: shader.vertexShader,
+                    uniforms: shader.uniforms,
+                    depthWrite: false,
+                    side: THREE.BackSide
+                });
 
-	    // Clone ShaderMaterial (necessary for multiple cubemaps)
-	    var skyBoxMaterial = skyBoxShader.clone();
-	    skyBoxMaterial.uniforms['tCube'].value = cubemap; // Apply cubemap textures to shader uniforms
+                // Clone ShaderMaterial (necessary for multiple cubemaps)
+                var skyBoxMaterial = skyBoxShader.clone();
+                skyBoxMaterial.uniforms['tCube'].value = cubemapTexture; // Apply cubemap textures to shader uniforms
 
-	    // Set skybox dimensions
-	    var edgeLength = data.edgeLength;
-	    var skyBoxGeometry = new THREE.CubeGeometry(edgeLength, edgeLength, edgeLength);
-	    // var mesh = new THREE.Mesh(skyBoxGeometry, skyBoxMaterial);
-	    // Set entity's object3D
-	    el.setObject3D('cubemap', new THREE.Mesh(skyBoxGeometry, skyBoxMaterial));
-	  },
+                // Set skybox dimensions
+                var edgeLength = this.data.edgeLength;
+                var skyBoxGeometry = new THREE.CubeGeometry(edgeLength, edgeLength, edgeLength);
+                cubeMesh = new THREE.Mesh(skyBoxGeometry, skyBoxMaterial);
 
-	  /**
-	   * Called when a component is removed (e.g., via removeAttribute).
-	   * Generally undoes all modifications to the entity.
-	   */
-	  remove: function () {
-	    this.el.removeObject3D('cubemap');
-	  }
-	});
+                // Set entity's object3D
+                this.el.setObject3D('cubemap', cubeMesh);
+            },
+
+            /**
+             *  The same cube map texture is assigned to a cube, but in this
+             *  scene, the camera is inside the cube.  The face materials are MeshBasicMaterial, so no
+             *  light is needed to see it.  This scene does not use lighting at all. Textures opacity can be updated.
+             **/
+            loadCubemapUsingMeshBasicMaterial: function() {
+                
+                function loadTextures(textureURLs, callback) {
+                    var loaded = 0;
+
+                    function loadedOne() {
+                        loaded++;
+                        if (callback && loaded == textureURLs.length) {
+                            for (var i = 0; i < textureURLs; i++)
+                                textures[i].needsUpdate = true;
+                            callback();
+                        }
+                    }
+                    var textures = [];
+                    for (var i = 0; i < textureURLs.length; i++) {
+                        var tex = THREE.ImageUtils.loadTexture(textureURLs[i], undefined, loadedOne);
+                        textures.push(tex);
+                    }
+                    return textures;
+                }
+
+                var cubemapTextureLoaded = function() {
+                    console.log("cubemapTextureLoaded");
+                }
+
+                var cubeMesh;
+                var textures = loadTextures(this.urls, cubemapTextureLoaded);
+                var materials = [];
+                for (var i = 0; i < 6; i++) {
+                    materials.push(new THREE.MeshBasicMaterial({
+                        side: THREE.BackSide, // IMPORTANT: To see the inside of the cube, back faces must be rendered!
+                        map: textures[i],
+                        opacity: this.data.opacity,
+                        transparent: true
+                    }));
+                }
+
+                var edgeLength = this.data.edgeLength;
+
+                cubeMesh = new THREE.Mesh(new THREE.CubeGeometry(edgeLength, edgeLength, edgeLength), new THREE.MeshFaceMaterial(materials));
+
+                // Set entity's object3D
+                this.el.setObject3D('cubemap', cubeMesh);
+            }
+        });
 
 
-/***/ }
-/******/ ]);
+        /***/
+    }
+    /******/
+]);

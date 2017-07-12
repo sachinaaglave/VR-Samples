@@ -7,21 +7,24 @@
   </head>
   <body>
     <a-scene>
-<!--       <a-assets>
+      <a-assets>
         <a-cubemap id="sky">
           <img src="./back.jpg">
           <img src="./front.jpg">
-          <img src="./top.jpg">
           <img src="./bottom.jpg">
+          <img src="./top.jpg">
           <img src="./left.jpg"> 
           <img src="./right.jpg">
         </a-cubemap>
-      </a-assets> -->
+      </a-assets>
 
       <!-- <a-box position="0 2 -3" rotation="0 45 0" color="#4CC3D9"></a-box> -->
-      <a-entity position="-1 2 -3" rotation="0 45 0" scale="1 1 1" color="#4CC3D9" geometry="primitive: box" material="roughness: 0; metalness: 1; opacity:0" opacity="0" visible="false"></a-entity>
+
+      <a-entity position="1 2 -10" rotation="0 45 0" scale="1 1 1" color="#4CC3D9" geometry="primitive: box" material="envMap: #sky; roughness: 0; metalness: 0.5; opacity:0" opacity="0" visible="false"></a-entity>
+
+      <!-- <a-entity position="-3 2 -10" rotation="0 45 0" scale="1 1 1" color="#4CC3D9" geometry="primitive: box" material="envMap: #sky;roughness: 0; metalness: 0.5; opacity:1"></a-entity> -->
             
-      <a-entity id="cube1" position="0 0 0" color="#4CC3D9" geometry="primitive: box; height:200; width: 200; depth:200;" material=" roughness: 0; metalness: 1; opacity:1; side: back;"></a-entity>
+      <a-entity id="cube1" position="0 0 0" color="#4CC3D9" geometry="primitive: box; height: 10; width: 10; depth: 10;" material=" roughness: 0.5; metalness: 0.5; opacity:1; side: back;"></a-entity>
       
       <a-sky color="red"></a-sky>
     </a-scene>
@@ -69,9 +72,9 @@
 
     function run () {
       console.log("updating cubemap texture");
-      // setTimeout(function(){
-        document.querySelector("#cube1").setAttribute('material', {envMap: 'url(./face-r.jpg), url(./face-l.jpg), url(./face-t.jpg), url(date:./face-d.jpg ;), url(./face-f.jpg), url(./face-b.jpg)'});
-      // }, 2000);
+      setTimeout(function(){
+        document.querySelector("#cube1").setAttribute('material', {envMap: '#sky'});
+      }, 5000);
     }
   </script>
 </html>

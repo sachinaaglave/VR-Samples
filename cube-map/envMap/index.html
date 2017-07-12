@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Physically-Based Materials</title>
+    <meta name="description" content="Physically-Based Materials - A-Frame">
+    <script src="./aframe-master.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <a-cubemap id="reflection">
+                <img src="./milkyway/px.jpg">
+                <img src="./milkyway/nx.jpg">
+                <img src="./milkyway/py.jpg">
+                <img src="./milkyway/ny.jpg">
+                <img src="./milkyway/pz.jpg">
+                <img src="./milkyway/nz.jpg">
+            </a-cubemap>
+
+            <a-mixin id="sphere" geometry="primitive: sphere; radius: 500"></a-mixin>
+            <a-mixin id="box" geometry="primitive: box; width: 10; height: 10; depth: 10;"></a-mixin>
+
+        </a-assets>
+
+        <!-- Skysphere. -->
+        <a-entity geometry="primitive: sphere; radius: 500" material="color: #111; receiveLight: false; envMap: #reflection" scale="1 1 -1" visible="false"></a-entity>
+
+    </a-scene>
+    <script type="text/javascript">
+    /**
+     * Creates matrix of objects with varying diffuse colors, metalnesses, and
+     * roughnesses.
+     */
+    var scene = document.querySelector('a-scene');
+    for (var alpha = 0; alpha <= 1.0; alpha += 0.25) {
+        for (var beta = 0; beta <= 1.0; beta += 0.25) {
+            for (var gamma = 0; gamma <= 1.0; gamma += 0.25) {
+                var obj = document.createElement('a-entity');
+                obj.setAttribute('mixin', 'box');
+                obj.setAttribute('material', {
+                    color: new THREE.Color(gamma, gamma, gamma).getStyle(),
+                    envMap: '#reflection',
+                    metalness: alpha,
+                    roughness: beta,
+                    side: 'back'
+                });
+                obj.setAttribute('position', {
+                    x: 0,
+                    y: 0,
+                    z: 0
+                });
+                if(alpha == 1 && beta == 0 && (gamma == 1)){
+                  console.log("Object created");
+                  scene.appendChild(obj);
+                }
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>
