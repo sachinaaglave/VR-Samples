@@ -4,7 +4,7 @@
     <script src="../build.js"></script>
   </head>
   <body>
-    <a-scene physics="debug: true; gravity: -20">
+    <a-scene physics="debug: true; gravity: -20; friction: 1000;">
 
       <a-sphere
         click-drag
@@ -75,7 +75,8 @@
           rotatedVelocity.applyAxisAngle(rotation, Math.PI / 8);
 
           draggable.components['dynamic-body'].play();
-          draggable.body.velocity.set(rotatedVelocity.x, rotatedVelocity.y, rotatedVelocity.z);
+          draggable.body.angularVelocity.set(rotatedVelocity.x, rotatedVelocity.y, rotatedVelocity.z);
+          draggable.body.angularDamping.set(0.5);
         });
       </script>
     </a-scene>
