@@ -1,0 +1,40 @@
+document.querySelector("[color='tomato']").addEventListener("mouseenter", function(){
+	console.log("Mouse enter");
+});
+
+document.querySelector("[color='tomato']").addEventListener("mouseleave", function(){
+	console.log("Mouse leave");
+});
+
+document.querySelector("[color='tomato']").addEventListener("click", function(){
+	console.log("Mouse click");
+});
+
+
+
+document.querySelector("[gltf-model='#Crate1']").addEventListener("mouseenter", function(){
+	console.log("#Crate1 enter");
+});
+
+document.querySelector("[gltf-model='#Crate1']").addEventListener("mouseleave", function(){
+	console.log("#Crate1 leave");
+});
+
+document.querySelector("[gltf-model='#Crate1']").addEventListener("click", function(){
+	console.log("#Crate1 click");
+});
+
+
+
+document.querySelector("[src='#Crate1']").addEventListener("mouseenter", function(){
+	console.log("#Crate1 enter");
+});
+
+document.querySelector("[src='#Crate1']").addEventListener("mouseleave", function(){
+	console.log("#Crate1 leave");
+});
+
+document.querySelector("[src='#Crate1']").addEventListener("click", function(){
+	console.log("#Crate1 click");
+});
+

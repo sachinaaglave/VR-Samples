@@ -1,0 +1,717 @@
+# Max2Mtl Version 4.0 Mar 10th, 2001
+#
+newmtl 02_-_Def
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  15.3
+illum 2
+#
+newmtl 02_-_Default
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  3.1
+illum 2
+#
+newmtl Material__36
+Ka  0.8 0.8 0.8
+Kd  0.8 0.8 0.8
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  6.3
+illum 2
+#
+newmtl 07_-_Default
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Material__36 (2) to come 
+#
+newmtl 02_-_Default
+Ka  0.1 0.1 0.1
+Kd  0.1 0.1 0.1
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  3.1
+illum 2
+#
+newmtl Material__36
+Ka  0.8 0.8 0.8
+Kd  0.8 0.8 0.8
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  6.3
+illum 2
+#
+# Multi/Sub Material__36 done 
+#
+# Multi/Sub Material__0 (10) to come 
+#
+newmtl Material__37
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__38
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__39
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__40
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__41
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__42
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__43
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__44
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__8
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__9
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Material__0 done 
+#
+# Multi/Sub Material__26 (2) to come 
+#
+newmtl Material__15
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__3
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Material__26 done 
+#
+# Multi/Sub Figure_2 (2) to come 
+#
+newmtl Material__48
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__49
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Figure_2 done 
+#
+# Multi/Sub Figure_3 (9) to come 
+#
+newmtl 3
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+map_Kd creed_leather008.jpg
+#
+newmtl 3
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 3
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 3
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+map_Kd creed_leather008.jpg
+#
+newmtl 3
+Ka  0.2 0.2 0.2
+Kd  0.2 0.2 0.2
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 3
+Ka  0.2 0.2 0.2
+Kd  0.2 0.2 0.2
+Ks  0.6 0.6 0.6
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 3
+Ka  0.2 0.2 0.2
+Kd  0.2 0.2 0.2
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 3
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 3
+Ka  0.9 0.8 0.6
+Kd  0.9 0.8 0.6
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Figure_3 done 
+#
+# Multi/Sub Figure_4 (9) to come 
+#
+newmtl 4
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+map_Kd creed_leather008.jpg
+#
+newmtl 4
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 4
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 4
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+map_Kd creed_leather008.jpg
+#
+newmtl 4
+Ka  0.9 0.9 0.9
+Kd  0.9 0.9 0.9
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 4
+Ka  0.2 0.2 0.2
+Kd  0.2 0.2 0.2
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 4
+Ka  0.2 0.2 0.2
+Kd  0.2 0.2 0.2
+Ks  0.6 0.6 0.6
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 4
+Ka  0.2 0.2 0.2
+Kd  0.2 0.2 0.2
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 4
+Ka  0.9 0.8 0.6
+Kd  0.9 0.8 0.6
+Ks  0.5 0.5 0.5
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Figure_4 done 
+#
+# Multi/Sub Figure_5 (3) to come 
+#
+newmtl Material__50
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 5
+Ka  0.1 0.1 0.0
+Kd  0.1 0.1 0.0
+Ks  0.1 0.1 0.1
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 5
+Ka  0.1 0.1 0.0
+Kd  0.1 0.1 0.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Figure_5 done 
+#
+# Multi/Sub Figure_1 (40) to come 
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.1 0.1 0.1
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.1 0.1 0.1
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  0.1 0.1 0.0
+Kd  0.1 0.1 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  0.4 0.2 0.0
+Kd  0.4 0.2 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaTeeth&gums.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaTeeth&gums.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd HeadPink.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesL.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesL.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesL.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.1 0.1 0.1
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesL.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesR.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesR.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesR.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.1 0.1 0.1
+d  1.0
+Ns  0.0
+illum 2
+map_Kd BrownEyesR.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl 1
+Ka  1.0 1.0 1.0
+Kd  1.0 1.0 1.0
+Ks  0.2 0.2 0.2
+d  1.0
+Ns  0.0
+illum 2
+map_Kd LaylaBody.jpg
+#
+newmtl Material__45
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl Material__46
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  1.0 0.8 0.1
+Kd  1.0 0.8 0.1
+Ks  1.0 0.9 0.4
+d  1.0
+Ns  0.0
+illum 2
+#
+newmtl 1
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+map_Kd GLH_Brown.jpg
+#
+newmtl Material__47
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  0.0 0.0 0.0
+d  1.0
+Ns  0.0
+illum 2
+#
+# Multi/Sub Figure_1 done 
+#
+# EOF
